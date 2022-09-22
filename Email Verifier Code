@@ -1,0 +1,12 @@
+import requests
+
+email_address = str(input('Email: '))
+response = requests.get("https://isitarealemail.com/api/email/validate", params = {'email': email_address})
+
+status = response.json()['status']
+if status == "valid":
+  print("Email is Valid")
+elif status == "invalid":
+  print("Email is Invalid")
+else:
+  print("Email is Risky or may Bounce")
