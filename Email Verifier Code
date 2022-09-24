@@ -1,7 +1,9 @@
 import requests
 
 email_address = str(input('Email: '))
+
 response = requests.get("https://isitarealemail.com/api/email/validate", params = {'email': email_address})
+#request from website is limited
 
 status = response.json()['status']
 if status == "valid":
